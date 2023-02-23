@@ -34,7 +34,25 @@ pipeline {
                     }
                 }
 
+             stage('Build docker image'){
+                                  steps{
+                                          script{
+                                              sh 'docker build -t samarga/catproduit .'
+                                                              }
+                                                            }
+                                                        }
+                            stage('Docker login') {
 
+                                            steps {
+                                              sh 'echo "login Docker ...."'
+                                              sh 'docker login -u samarga -p Samar2022@'
+                                                         }  }
+                            stage('Docker push') {
+
+                                            steps {
+                                                sh 'echo "Docker is pushing ...."'
+                                            	sh 'docker push samarga/catproduit '
+                                                         }  }
 
 
 
