@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  app:
+    container_name: catproduit
+    image: catproduit
+    build: ./
+    ports:
+       "8080:8080"
+    depends_on:
+       postgresql
+  postgresql:
+    image: postgres
+    ports:
+       "5433:5433"
+    environment:
+       POSTGRES_PASSWORD=1234
+       POSTGRES_USER=postgres
+       POSTGRES_DB=catproduit

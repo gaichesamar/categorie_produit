@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout GIT') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'main']],
+                    userRemoteConfigs: [[url: 'https://github.com/gaichesamar/categorie_produit_crud-spring-boot-.git']]
+                ])
+            }
+        }
+
+        stage('MVN CLEAN') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+
+        stage('MVN COMPILE') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+
+
+
+
+
+
+
+
+      }
+    }
