@@ -1,6 +1,6 @@
 package com.samar.catproduit.web;
-import com.samar.catproduit.entites.categorie;
-import com.samar.catproduit.service.categorieservice;
+import com.samar.catproduit.entites.Categorie;
+import com.samar.catproduit.service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,25 +10,25 @@ import java.util.List;
 
 public class CategorieRestController {
     @Autowired
-    categorieservice categorieservice;
+    CategorieService categorieservice;
     @PostMapping("/add")
-    public String addcategorie(@RequestBody categorie categorie){
+    public String addcategorie(@RequestBody Categorie categorie){
         categorieservice.addcategorie(categorie);
         return "categorie a eté ajoutée avec succée...";
     }
 
     @GetMapping("/categories")
-    public List<categorie> getcategories(){
+    public List<Categorie> getcategories(){
         return categorieservice.getcategories();
     }
 
     @GetMapping("/categorie/{id}")
-    public categorie getcategorieById(@PathVariable("id") Long id){
+    public Categorie getcategorieById(@PathVariable("id") Long id){
         return categorieservice.getcategorieByid(id);
     }
 
     @PutMapping("/update/{id}")
-    public String updatecategorie(@PathVariable("id") long id, @RequestBody categorie categorie){
+    public String updatecategorie(@PathVariable("id") long id, @RequestBody Categorie categorie){
         categorieservice.updatecategorie(id, categorie);
         return "categorie a eté modifiée avec succée...";
     }

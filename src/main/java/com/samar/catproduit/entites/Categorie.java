@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class categorie {
+public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +22,6 @@ public class categorie {
     private int qt;
     private LocalDate datecreation;
     private LocalDate datemodif;
-    @ManyToOne(targetEntity = produit.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id-categorie",referencedColumnName = "id")
-    private List<produit> produits;
+    @OneToMany(mappedBy = "categorie")
+    private List<Produit> produits=new ArrayList<>();
 }

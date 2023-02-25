@@ -13,7 +13,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class produit {
+public class Produit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,5 +23,5 @@ public class produit {
     private LocalDate date_cre;
     private LocalDate date_mod;
     @ManyToOne
-categorie categorie;
+private  Categorie categorie;
 }
