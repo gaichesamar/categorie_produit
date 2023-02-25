@@ -33,20 +33,20 @@ pipeline {
                         bat 'mvn test'
                     }
                 }
-
-            	 stage('Build docker image'){
-                                  steps{
-                                          script{
-                                              sh 'docker build -t samarga/catproduit'
-                                                              }
-                                                            }
-                                                        }
-                            stage('Docker login') {
+                     stage('Docker login') {
 
                                             steps {
-                                              sh 'echo "login Docker ...."'
-                                              sh 'docker login -u samarga -p Samar2022'
+                                             bat 'echo "login Docker ...."'
+                                              bat 'docker login -u samarga -p Samar2022'
                                                          }  }
+            	 stage('Docker push'){
+                                  steps{
+                                           bat 'echo " Docker is pushing ...."'
+                                             bat 'docker push samarga/produit-1.0.0:latest'
+
+                                                            }
+                                                        }
+
 
 
 

@@ -1,7 +1,7 @@
-FROM adoptopenjdk/openjdk17:alpine-jre
-EXPOSE 8080
-ADD target/catproduit.jar catproduit.jar
-ENTRYPOINT ["jav","jar","/catproduit.jar"]
+FROM openjdk:17-jdk-alpine
+VOLUME /tmp
+COPY target/produit-1.0.0.jar produit-1.0.0.jar
+ENTRYPOINT ["jav","jar","/produit-1.0.0.jar"]
 
 
 
