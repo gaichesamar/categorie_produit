@@ -37,7 +37,7 @@ pipeline {
                                                    steps {
                                                        bat 'mvn clean verify sonar:sonar \
                                                               -Dsonar.projectKey=samar \
-                                                              -Dsonar.host.url=http://localhost:9002 \
+                                                              -Dsonar.host.url=http://localhost:9000 \
                                                               -Dsonar.login=sqp_9cedb2cae0ff038c1d0aa81d83948fa492ff0e90'
                                                    }
                                                }
