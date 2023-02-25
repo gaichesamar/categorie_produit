@@ -34,6 +34,19 @@ pipeline {
                     }
                 }
 
+            	 stage('Build docker image'){
+                                  steps{
+                                          script{
+                                              sh 'docker build -t samarga/devops-integration'
+                                                              }
+                                                            }
+                                                        }
+                            stage('Docker login') {
+
+                                            steps {
+                                              sh 'echo "login Docker ...."'
+                                              sh 'docker login -u samarga -p Samar2022'
+                                                         }  }
 
 
 
