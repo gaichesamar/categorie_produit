@@ -47,6 +47,14 @@ pipeline {
                                              bat 'echo "login Docker ...."'
                                               bat 'docker login -u samarga -p Samar2022'
                                                          }  }
+
+                                         stage('Build docker image'){
+                                            steps{
+                                                    script{
+                                                bat 'docker build -t samarga/produit-1.0.0:latest .'
+                                                                                                           }
+                                                                                                         }
+                                                                                                     }
             	 stage('Docker push'){
                                   steps{
                                            bat 'echo " Docker is pushing ...."'
@@ -56,12 +64,6 @@ pipeline {
                                                         }
 
 
-                         stage('Docker push') {
-
-                                               steps {
-                                                bat 'echo "Docker is pushing ...."'
-                                             bat 'docker push samarga/produit-1.0.0:latest'
-                                                                                        }  }
 
 
       }
