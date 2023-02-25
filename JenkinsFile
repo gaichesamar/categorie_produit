@@ -37,7 +37,7 @@ pipeline {
             	 stage('Build docker image'){
                                   steps{
                                           script{
-                                              sh 'docker build -t samarga/devops-integration'
+                                              sh 'docker build -t samarga/catproduit'
                                                               }
                                                             }
                                                         }
