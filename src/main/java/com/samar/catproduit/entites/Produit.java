@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Data
@@ -20,8 +18,8 @@ public class Produit {
     private String namep;
     private int qt;
     private Boolean disponible;
-    private LocalDate date_cre;
-    private LocalDate date_mod;
+    private LocalDate dateCre;
+    private LocalDate dateMod;
     @ManyToOne
 private  Categorie categorie;
 }

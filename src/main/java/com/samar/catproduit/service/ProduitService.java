@@ -11,7 +11,7 @@ public interface ProduitService {
 
     public Produit getproduitByid(Long id);
 
-    public Produit updateproduit(Long id , Produit Produit);
+    public Produit updateproduit(Long id , Produit produit);
 
     public void deleteproduit(long id);
 

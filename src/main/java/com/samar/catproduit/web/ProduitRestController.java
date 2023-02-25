@@ -18,8 +18,8 @@ public class ProduitRestController {
     private CategorieService categorieservice;
 
     @PostMapping("/produitsave/{id}")
-    public String  addproduit(@RequestBody Produit Produit, @PathVariable long id){
-        produitservice.addproduit(Produit,id);
+    public String  addproduit(@RequestBody Produit produit, @PathVariable long id){
+        produitservice.addproduit(produit,id);
         return "produit a eté ajoutée avec succée...";
 
     }

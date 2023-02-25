@@ -8,6 +8,7 @@ class CatproduitApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

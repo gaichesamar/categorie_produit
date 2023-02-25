@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 @Service
 public class ProduitServiceImpl implements ProduitService{
-    final private  ProduitRepository produitRepository;
+    private final   ProduitRepository produitRepository;
     private final com.samar.catproduit.repositories.CategorirRepository  categorirRepository;
 
     public ProduitServiceImpl(ProduitRepository produitRepository, CategorirRepository categorirRepository) {
@@ -22,8 +22,8 @@ public class ProduitServiceImpl implements ProduitService{
         Categorie categorie = categorirRepository.findById(id).orElse(null);
         produit.setCategorie(categorie);
         LocalDate date = LocalDate.now();
-        produit.setDate_cre(date);
-        produit.setDate_mod(date);
+        produit.setDateCre(date);
+        produit.setDateMod(date);
         return produitRepository.save(produit);
     }
 
@@ -31,25 +31,24 @@ public class ProduitServiceImpl implements ProduitService{
     public List<Produit> getproduits() {
 
 
-        return (List<Produit>) produitRepository.findAll();
+        return  produitRepository.findAll();
     }
 
 
     @Override
     public Produit getproduitByid(Long id) {
-        return produitRepository.findById(id).get();
+        return produitRepository.findById(id).orElse(null);
     }
 
 
     @Override
-    public Produit updateproduit(Long id, Produit Produit) {
-        Produit produit1 = produitRepository.findById(id).get();
-        produit1.setNamep(Produit.getNamep());
-        produit1.setQt(Produit.getQt());
-        produit1.setDisponible(Produit.getDisponible());
-        produit1.setDate_cre(Produit.getDate_cre());
-        produit1.setDate_mod(Produit.getDate_mod());
-        return produitRepository.save(produit1);
+    public Produit updateproduit(Long id, Produit produit) {
+        produit.setNamep(produit.getNamep());
+        produit.setQt(produit.getQt());
+        produit.setDisponible(produit.getDisponible());
+        produit.setDateCre(produit.getDateCre());
+        produit.setDateMod(produit.getDateMod());
+        return produitRepository.save(produit);
     }
 
     @Override
