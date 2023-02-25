@@ -33,6 +33,14 @@ pipeline {
                         bat 'mvn test'
                     }
                 }
+                 stage('MVN SONARQUBE') {
+                                                steps {
+                                                       bat 'mvn clean verify sonar:sonar \
+                                                              -Dsonar.projectKey=sonarQube \
+                                                               -Dsonar.host.url=http://localhost:9000 \
+                                                               -Dsonar.login=samar
+                                                   }
+                                               }
                      stage('Docker login') {
 
                                             steps {
@@ -48,11 +56,12 @@ pipeline {
                                                         }
 
 
+                         stage('Docker push') {
 
-
-
-
-
+                                               steps {
+                                                bat 'echo "Docker is pushing ...."'
+                                             bat 'docker push samarga/produit-1.0.0:latest'
+                                                                                        }  }
 
 
       }
